@@ -1,0 +1,24 @@
+[Unit]
+Description=MeshCentral Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=meshcentral
+Group=meshcentral
+WorkingDirectory=/opt/meshcentral
+ExecStart=/usr/bin/node /opt/meshcentral/node_modules/meshcentral
+Environment=NODE_ENV=production
+Restart=always
+RestartSec=10s
+LimitNOFILE=1000000
+# Позволяет слушать порты 80/443 без запуска от root
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,42 @@
+{
+  "settings": {
+    "cert": "mesh.example.com",
+    "WANonly": true,
+    "port": 443,
+    "redirPort": 80,
+    "agentPort": 4433,
+    "userAllowedIP": "10.99.0.0/24",
+    "maxInvalidLogin": { "time": 10, "count": 5, "coolofftime": 30 },
+    "sessionTime": 30,
+    "allowFraming": false,
+    "allowLoginToken": false,
+    "selfUpdate": false,
+    "autoBackup": {
+      "backupIntervalHours": 24,
+      "keepLastDaysBackup": 14,
+      "zipPassword": "CHANGE_ME_LONG_RANDOM_PASSWORD",
+      "backupPath": "/opt/meshcentral/backups"
+    }
+  },
+  "domains": {
+    "": {
+      "title": "MPR",
+      "title2": "Управление ПК",
+      "newAccounts": false,
+      "passwordRequirements": {
+        "min": 12,
+        "max": 128,
+        "upper": 1,
+        "lower": 1,
+        "numeric": 1,
+        "nonalpha": 1,
+        "force2factor": true
+      }
+    }
+  },
+  "letsencrypt": {
+    "email": "admin@example.com",
+    "names": "mesh.example.com",
+    "production": false
+  }
+}
